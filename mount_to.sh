@@ -17,6 +17,6 @@ do
     echo "DST_PATH: ${DST_PATH}"
 
     sudo mkdir -p "${DST_PATH}"
-    sudo sshfs dudin@${IP}:"${SRC_PATH}" "${DST_PATH}" -oauto_cache,allow_other
+    sudo sshfs dudin@${IP}:"${SRC_PATH}" "${DST_PATH}" -oauto_cache,allow_other,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,IdentityFile=~/.ssh/id_rsa
     shift
 done
